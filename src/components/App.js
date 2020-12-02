@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import SearchBar from "./Search/SearchBar";
 import Style from "./App.module.scss";
-import Modal from "./Modal/Modal";
 import ImageList from "./ImageList/ImageList";
 
 class App extends React.Component {
