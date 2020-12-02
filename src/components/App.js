@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import unsplash from "./api/unsplash";
 import SearchBar from "./Search/SearchBar";
 import Style from "./App.module.scss";
 import ImageList from "./ImageList/ImageList";
@@ -16,23 +17,19 @@ class App extends React.Component {
   KEY = `?client_id=0swmL3nv8dazLh42kAr2eHn3t0ApL7g5IgFKSMmjFcM`;
   PERPAGE = `&per_page=8`;
 
-  onSearchSubmit = (query) => {
+  onSearchSubmit = async (term) => {
     this.setState({ loading: true, isSearching: true });
-    axios
-      .get(
-        `https://api.unsplash.com/search/photos/?page=1&per_page=10&query=${query}&client_id=0swmL3nv8dazLh42kAr2eHn3t0ApL7g5IgFKSMmjFcM`
-      )
-      .then((data) => {
-        this.setState({
-          images: data.data.results,
-          loading: false,
-          isSearching: false,
-          isSearchend: true,
-        });
-      })
-      .catch((err) => {
-        console.log("Error happened during fetching!", err);
-      });
+    const response = await unsplash.get("/search/photos", {
+      params: {
+        query: term,
+      },
+    });
+    this.setState({
+      images: response.data.results,
+      loading: false,
+      isSearching: false,
+      isSearchend: true,
+    });
   };
 
   fetchInitialImages = () => {
