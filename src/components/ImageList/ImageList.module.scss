@@ -1,0 +1,58 @@
+.imageList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 10px;
+}
+
+.imageList img {
+  width: 250px;
+}
+
+.authorName{
+  position: absolute;
+  bottom: 20px;
+  left: 46px;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 1px 0 white;
+  top: bottom;
+  bottom: 32px;
+}
+
+.imageLocation{
+  position: absolute;
+  bottom: 8px;
+  left: 46px;
+  font-size: 0.9rem;
+  color: white;
+  text-shadow: 0 1px 0 white;
+  padding: 10px 0;
+}
+
+.cardContainer{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.card {
+  margin-bottom: 1rem;
+  display: flex;
+  position: relative;
+  text-align: center;
+  color: white;
+
+  &Image {
+    flex: 100%;
+    margin-top: 1rem;
+    border-radius: 10px;
+    width: 40%;
+    filter: brightness(50%)
+  }
+  &:hover{
+      transform: scale(1.01);
+      // opacity: 0.5;
+      cursor: pointer;
+  }
+
+}
