@@ -3,15 +3,13 @@ import axios from "axios";
 import SearchBar from "./Search/SearchBar";
 import Style from "./App.module.scss";
 import Modal from "./Modal/Modal";
-import ImageList from './ImageList/ImageList';
+import ImageList from "./ImageList/ImageList";
 
 class App extends React.Component {
   state = {
     images: [],
     loading: false,
     isSearching: false,
-    imageClick: false,
-    imageInfo: {},
     isSearchend: false,
   };
 
@@ -60,13 +58,7 @@ class App extends React.Component {
   }
 
   render() {
-    const {
-      images,
-      loading,
-      isSearching,
-      imageClick,
-      isSearchend,
-    } = this.state;
+    const { images, loading, isSearching, isSearchend } = this.state;
     return (
       <div className={Style.AppContainer}>
         <div>
@@ -96,37 +88,8 @@ class App extends React.Component {
                 </div>
               </div>
             ))}
-             <ImageList images={images} />
+          <ImageList images={images} />
         </div>
-        {/* <div className={Style.cardList}>
-          {images &&
-            images.map((pic) => (
-              <div
-                className={Style.card}
-                key={pic.id}
-                onClick={() => this.clickHandler(pic)}
-              >
-                <img
-                  className={Style.cardImage}
-                  alt={pic.alt_description}
-                  src={pic.urls.full}
-                ></img>
-                <div className={Style.authorName}>{pic.user.first_name}</div>
-                <div className={Style.imageLocation}>{pic.user.location}</div>
-              </div>
-            ))}
-        </div> */}
-        <div className="ui container" style={{marginTop: "10px"}}>
-       
-        </div>
-           
-        {imageClick && (
-          <Modal
-            show={this.state.imageClick}
-            modalClosed={this.clickHandler}
-            pic={this.state.imageInfo}
-          />
-        )}
       </div>
     );
   }

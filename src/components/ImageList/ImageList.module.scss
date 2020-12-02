@@ -47,12 +47,13 @@
     margin-top: 1rem;
     border-radius: 10px;
     width: 40%;
-    filter: brightness(50%)
-  }
-  &:hover{
+    filter: brightness(50%);
+
+    &:hover{
       transform: scale(1.01);
-      // opacity: 0.5;
       cursor: pointer;
+    }
   }
+ 
 
 }
